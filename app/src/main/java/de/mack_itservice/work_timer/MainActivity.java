@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -83,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Der Zwischenbericht/Reset- und der Save-Button werden bei Programmstart deaktiviert
         calcButton.setEnabled(false);
+        calcButton.setBackgroundColor(Color.parseColor("#efefef"));
         resetButton.setEnabled(false);
+        resetButton.setBackgroundColor(Color.parseColor("#efefef"));
         saveButton.setEnabled(false);
+        saveButton.setBackgroundColor(Color.parseColor("#efefef"));
 
         //final SharedPreferences settings2 = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
@@ -201,7 +205,9 @@ public class MainActivity extends AppCompatActivity {
 
                     startStopButton.setImageResource(R.drawable.stop_50x50);
                     calcButton.setEnabled(true);
+                    calcButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
                     resetButton.setEnabled(false);
+                    resetButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                 }
                 // nur tbStartTime1 ist belegt
                 else if ((tbStartTime1.getText().toString().contains(":")) && (!tbStopTime1.getText().toString().contains(":") && (!tbStartTime2.getText().toString().contains(":")) && (!tbStopTime2.getText().toString().contains(":")))) {
@@ -218,8 +224,11 @@ public class MainActivity extends AppCompatActivity {
 
                     startStopButton.setImageResource(R.drawable.stop_50x50);
                     calcButton.setEnabled(true);
+                    calcButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
                     saveButton.setEnabled(false);
+                    saveButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                     resetButton.setEnabled(false);
+                    resetButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                 }
                 // Die ersten 3 Textboxen sind belegt
                 else if ((tbStartTime1.getText().toString().contains(":")) && (tbStopTime1.getText().toString().contains(":") && (tbStartTime2.getText().toString().contains(":")) && (!tbStopTime2.getText().toString().contains(":")))) {
@@ -358,26 +367,7 @@ public class MainActivity extends AppCompatActivity {
         // Reset-Button: Es soll alles zurückgesetzt werden
         resetButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                // Der Abrechnungszeitraum und der Stundenlohn werden ausgelesen
-                tbStartSummary.setVisibility(view.VISIBLE);
-                final SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-                String abrechnungszeitraum = (settings.getString("abrechnungszeitraum", ""));
-                String stundenlohn = (settings.getString("stundenlohn", ""));
-                tbStartSummary.setText("Abrechnungszeitraum: " + abrechnungszeitraum + "\nStundenlohn: " + stundenlohn + " €");
-
-                startStopButton.setEnabled(true);
-                startStopButton.setImageResource(R.drawable.start_50x50);
-                tbStartTime1.setText("");
-                tbStopTime1.setText("");
-                tbStartTime2.setText("");
-                tbStopTime2.setText("");
-                tbWorktime.setText("");
-                tbCosts.setText("");
-                compltime = 0;
-                bill = 0;
-                resetButton.setEnabled(false);
-                calcButton.setEnabled(false);
-                saveButton.setEnabled(false);
+                ArbeitszeitUndKostenZuruecksetzen();
             }
         });
 
@@ -389,6 +379,45 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Funktion zum Zurücksetzen der aufgezeichneten Arbeitszeit/-kosten
+    protected void ArbeitszeitUndKostenZuruecksetzen() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder
+                .setTitle("Alles zurücksetzen?")
+                //.setMessage("Bericht senden?")
+                //.setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Der Abrechnungszeitraum und der Stundenlohn werden ausgelesen
+                        tbStartSummary.setVisibility(View.VISIBLE);
+                        final SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+                        String abrechnungszeitraum = (settings.getString("abrechnungszeitraum", ""));
+                        String stundenlohn = (settings.getString("stundenlohn", ""));
+                        tbStartSummary.setText("Abrechnungszeitraum: " + abrechnungszeitraum + "\nStundenlohn: " + stundenlohn + " €");
+
+                        startStopButton.setEnabled(true);
+                        startStopButton.setImageResource(R.drawable.start_50x50);
+                        startStopButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
+                        tbStartTime1.setText("");
+                        tbStopTime1.setText("");
+                        tbStartTime2.setText("");
+                        tbStopTime2.setText("");
+                        tbWorktime.setText("");
+                        tbCosts.setText("");
+                        compltime = 0;
+                        bill = 0;
+                        resetButton.setEnabled(false);
+                        resetButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                        calcButton.setEnabled(false);
+                        calcButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                        saveButton.setEnabled(false);
+                        saveButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                    }
+                })
+                .setNegativeButton("Nein", null) // Nichts machen
+                .show();
+    }
+
     // Funktion die beim Klick auf den Speichern-Button nachfragt, ob auch eine Mail geschickt werden soll
     protected void NachfrageObMailVersendetWerdenSoll() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -396,13 +425,13 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle("E-Mail mit Tätigkeits-Bericht versenden?")
                 .setMessage("Bericht senden?")
                 //.setIcon(android.R.drawable.ic_dialog_alert)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //Toast.makeText(MainActivity.this, "Es wurde ja gedrückt", Toast.LENGTH_SHORT).show();
                         BerichtPerMailSenden();
                     }
                 })
-                .setNegativeButton("No", null) // Nichts machen
+                .setNegativeButton("Nein", null) // Nichts machen
                 .show();
     }
 
@@ -420,13 +449,13 @@ public class MainActivity extends AppCompatActivity {
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, mailaddress);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Bericht IT-Service ("+date+")");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Bericht Service-Leistung ("+date+")");
 
         String body = "";
 
         // Es gab eine zweite Arbeitszeit
         if (tbStartTime2.getText().toString().contains(":")) {
-            body = "Bericht zum IT-Service vom " + date +
+            body = "Bericht zur Service-Leistung vom " + date +
                     "\n-----------------------------------------------------------------" +
                     "\n\nKunde: " + kunde +
                     "\nArbeitszeit: " + tbWorktime.getText().toString().substring(6) +
@@ -435,28 +464,23 @@ public class MainActivity extends AppCompatActivity {
                     "\nBeginn 2: " + tbStartTime2.getText() +
                     "\nEnde 2: " + tbStopTime2.getText() +
                     "\nRechnung: " + Double.toString(bill) + " €" +
-                    "\n\n" + "Automatisch generiert über IT-Timer für Android" +
-                    "\n// mack-itservice.de //";
+                    "\n\n" + "Automatisch generiert über Work-Timer für Android";
         }
         // Es gab keine zweite Arbeitszeit
         else {
-            body = "Bericht zum IT-Service vom " + date +
+            body = "Bericht zur Service-Leistung vom " + date +
                     "\n-----------------------------------------------------------------" +
                     "\n\nKunde: " + kunde +
                     "\nArbeitszeit: " + tbWorktime.getText().toString().substring(6) +
                     "\nBeginn: " + tbStartTime1.getText().toString() +
                     "\nEnde: " + tbStopTime1.getText().toString() +
                     "\nRechnung: " + Double.toString(bill) + " €" +
-                    "\n\n" + "Automatisch generiert über IT-Timer für Android" +
-                    "\n// mack-itservice.de //";
+                    "\n\n" + "Automatisch generiert über Work-Timer für Android";
         }
-
-
-
         emailIntent.putExtra(Intent.EXTRA_TEXT, body);
 
         try {
-                startActivity(Intent.createChooser(emailIntent, "E-Mail wird gesendet..."));
+                startActivity(Intent.createChooser(emailIntent, "Bitte Mail-App auswählen..."));
                 finish();
             } catch (android.content.ActivityNotFoundException ex) {
                 Toast.makeText(MainActivity.this,
@@ -478,8 +502,11 @@ public class MainActivity extends AppCompatActivity {
 
                                 startStopButton.setImageResource(R.drawable.start_50x50);
                                 calcButton.setEnabled(false);
+                                calcButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                                 saveButton.setEnabled(true);
+                                saveButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
                                 resetButton.setEnabled(true);
+                                resetButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
 
                                 String time1 = tbStartTime1.getText().toString();
                                 String time2 = tbStopTime1.getText().toString();
@@ -560,9 +587,13 @@ public class MainActivity extends AppCompatActivity {
 
                                 startStopButton.setImageResource(R.drawable.start_50x50);
                                 startStopButton.setEnabled(false);
+                                startStopButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                                 calcButton.setEnabled(false);
+                                calcButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                                 saveButton.setEnabled(true);
+                                saveButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
                                 resetButton.setEnabled(true);
+                                resetButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
 
                                 String time1 = tbStartTime1.getText().toString();
                                 String time2 = tbStopTime1.getText().toString();
@@ -662,7 +693,7 @@ public class MainActivity extends AppCompatActivity {
                                 NachfrageObMailVersendetWerdenSoll();
                             }
                         })
-                .setNegativeButton("Cancel",
+                .setNegativeButton("Abbruch",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
