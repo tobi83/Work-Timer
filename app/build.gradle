@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        Signing_config {
+            keyAlias 'tmack'
+            keyPassword 'Ma$power98043f8!Ae'
+            storeFile file('X:/Konfigurationen/Android-Programmierung/android_keystore.jks')
+            storePassword '0x1IAJu50AZsg3GTJtAF'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
     defaultConfig {
