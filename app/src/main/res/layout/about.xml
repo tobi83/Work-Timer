@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".aboutActivity"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:id="@+id/about_layout"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff5a70ac" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mack IT-Service Timer"
+                android:id="@+id/textView12"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_margin="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="59dp"
+            android:weightSum="1"
+            android:paddingLeft="7dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="459dp"
+                android:text="Version 1.0"
+                android:id="@+id/textViewAbout"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp" />
+        </LinearLayout>
+
+</LinearLayout>

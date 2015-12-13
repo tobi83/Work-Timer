@@ -1,0 +1,167 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:id="@+id/settings_layout"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff5a70ac" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Einstellungen"
+            android:id="@+id/textView12"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="59dp"
+        android:weightSum="1"
+        android:paddingLeft="7dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="Stundenlohn:"
+            android:id="@+id/textView3"
+            android:textIsSelectable="false"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp">
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/hourlyRate"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="€"
+                android:id="@+id/textView2" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:weightSum="1"
+        android:paddingLeft="7dp">
+
+        <TextView
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="Abrechnungszeitraum:"
+            android:id="@+id/textView4"
+            android:textIsSelectable="false"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:weightSum="1"
+        android:layout_weight="0.24">
+
+        <RadioGroup
+            android:id="@+id/radioButtonGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="74dp"
+            android:layout_weight="0.11">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="im Voraus:"
+            android:id="@+id/radioButtonBeforehand"
+            android:layout_weight="0.28"
+            android:layout_marginLeft="20dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minutengenau"
+                android:id="@+id/radioButtonExact"
+                android:layout_weight="0.28"
+                android:layout_marginLeft="20dp" />
+        </RadioGroup>
+
+        <Spinner
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="58dp"
+        android:weightSum="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="25dp">
+
+        <TextView
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="Mail-Adresse für Berichte:"
+            android:id="@+id/textViewMailAdresse"
+            android:textIsSelectable="false"
+            android:textStyle="bold" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/mailAddress"
+            android:layout_weight="0.68"
+            android:layout_marginLeft="-2dp"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/startButton_old"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Speichern und zurück"
+            android:padding="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_gravity="bottom" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Work-Timer</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="report_settings">Berichte</string>
+    <string name="about_settings">Über...</string>
+    <string name="timerVal">00:00:00</string>
+    <string name="resetButtonLabel">Reset</string>
+    <string name="startButtonLabel">Start</string>
+    <string name="saveButtonLabel">Speichern</string>
+    <string name="costs"></string>
+    <string name="tbRate">Kosten</string>
+    <string name="starttime"></string>
+    <string name="stoptime"></string>
+    <string name="title_settingsActivity">Einstellungen</string>
+    <string name="title_reportsActivity">Berichte</string>
+    <string name="title_aboutActivity">Über...</string>
+    <string name="quit">Beenden</string>
+    <!-- Spinner -->
+    <string-array name="planets_array">
+        <item>1/4 h</item>
+        <item>1/2 h</item>
+        <item>1 h</item>
+    </string-array>
+    <color name="lightgreen">#7CFC00</color>
+</resources>
