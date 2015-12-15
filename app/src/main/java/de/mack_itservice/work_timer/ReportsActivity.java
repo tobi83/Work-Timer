@@ -1,6 +1,8 @@
 package de.mack_itservice.work_timer;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -244,7 +246,6 @@ public class ReportsActivity extends Activity {
                 SharedPreferences.Editor editor = settings.edit();
 
                 // Werte werden geschrieben
-
                 editor.putString("datum1", tbDate1.getText().toString());
                 editor.putString("arbeitszeit1", tbWorktime1.getText().toString());
                 editor.putString("start1", tbStart1.getText().toString());
@@ -298,59 +299,77 @@ public class ReportsActivity extends Activity {
             }
         });
 
+        // Button zum Löschen aller Einträge
         deleteButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-
-                tbDate1.setText("");
-                tbWorktime1.setText("");
-                tbStart1.setText("");
-                tbStop1.setText("");
-                tbPause1.setText("");
-                tbBill1.setText("");
-                tbCustomer1.setText("");
-
-                tbDate2.setText("");
-                tbWorktime2.setText("");
-                tbStart2.setText("");
-                tbStop2.setText("");
-                tbPause2.setText("");
-                tbBill2.setText("");
-                tbCustomer2.setText("");
-
-                tbDate3.setText("");
-                tbWorktime3.setText("");
-                tbStart3.setText("");
-                tbStop3.setText("");
-                tbPause3.setText("");
-                tbBill3.setText("");
-                tbCustomer3.setText("");
-
-                tbDate4.setText("");
-                tbWorktime4.setText("");
-                tbStart4.setText("");
-                tbStop4.setText("");
-                tbPause4.setText("");
-                tbBill4.setText("");
-                tbCustomer4.setText("");
-
-                tbDate5.setText("");
-                tbWorktime5.setText("");
-                tbStart5.setText("");
-                tbStop5.setText("");
-                tbPause5.setText("");
-                tbBill5.setText("");
-                tbCustomer5.setText("");
-
-                tbDate6.setText("");
-                tbWorktime6.setText("");
-                tbStart6.setText("");
-                tbStop6.setText("");
-                tbPause6.setText("");
-                tbBill6.setText("");
-                tbCustomer6.setText("");
+                DeleteReportEntries();
             }
         });
+    }
+
+    // Funktion zum Leeren der Reports
+    protected void DeleteReportEntries() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder
+                .setTitle("Alle Einträge löschen")
+                .setMessage("Sicher?")
+                //.setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        tbDate1.setText("");
+                        tbWorktime1.setText("");
+                        tbStart1.setText("");
+                        tbStop1.setText("");
+                        tbPause1.setText("");
+                        tbBill1.setText("");
+                        tbCustomer1.setText("");
+
+                        tbDate2.setText("");
+                        tbWorktime2.setText("");
+                        tbStart2.setText("");
+                        tbStop2.setText("");
+                        tbPause2.setText("");
+                        tbBill2.setText("");
+                        tbCustomer2.setText("");
+
+                        tbDate3.setText("");
+                        tbWorktime3.setText("");
+                        tbStart3.setText("");
+                        tbStop3.setText("");
+                        tbPause3.setText("");
+                        tbBill3.setText("");
+                        tbCustomer3.setText("");
+
+                        tbDate4.setText("");
+                        tbWorktime4.setText("");
+                        tbStart4.setText("");
+                        tbStop4.setText("");
+                        tbPause4.setText("");
+                        tbBill4.setText("");
+                        tbCustomer4.setText("");
+
+                        tbDate5.setText("");
+                        tbWorktime5.setText("");
+                        tbStart5.setText("");
+                        tbStop5.setText("");
+                        tbPause5.setText("");
+                        tbBill5.setText("");
+                        tbCustomer5.setText("");
+
+                        tbDate6.setText("");
+                        tbWorktime6.setText("");
+                        tbStart6.setText("");
+                        tbStop6.setText("");
+                        tbPause6.setText("");
+                        tbBill6.setText("");
+                        tbCustomer6.setText("");
+
+                        Toast.makeText(getApplicationContext(), "Alle Einträge gelöscht", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Nein", null) // Nichts machen
+                .show();
     }
 }
 

@@ -144,14 +144,15 @@
             android:layout_margin="5dp"
             android:textSize="12dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:inputType="textPersonName"
             android:id="@+id/bill1"
             android:layout_column="7"
-            android:layout_margin="5dp"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:hint=""
+            android:gravity="bottom" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -215,14 +216,15 @@
             android:layout_margin="5dp"
             android:textSize="12dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:inputType="textPersonName"
             android:id="@+id/bill2"
             android:layout_column="7"
-            android:layout_margin="5dp"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:hint=""
+            android:gravity="bottom" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -286,14 +288,15 @@
             android:layout_margin="5dp"
             android:textSize="12dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:inputType="textPersonName"
             android:id="@+id/bill3"
             android:layout_column="7"
-            android:layout_margin="5dp"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:hint=""
+            android:gravity="bottom" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -356,14 +359,15 @@
             android:layout_margin="5dp"
             android:textSize="12dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:inputType="textPersonName"
             android:id="@+id/bill4"
             android:layout_column="7"
-            android:layout_margin="5dp"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:hint=""
+            android:gravity="bottom" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -426,14 +430,15 @@
             android:layout_margin="5dp"
             android:textSize="12dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:inputType="textPersonName"
             android:id="@+id/bill5"
             android:layout_column="7"
-            android:layout_margin="5dp"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:hint=""
+            android:gravity="bottom" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -496,14 +501,15 @@
             android:layout_margin="5dp"
             android:textSize="12dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:inputType="textPersonName"
             android:id="@+id/bill6"
             android:layout_column="7"
-            android:layout_margin="5dp"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:hint=""
+            android:gravity="bottom" />
 
         <EditText
             android:layout_width="wrap_content"
