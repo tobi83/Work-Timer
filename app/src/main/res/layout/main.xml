@@ -40,7 +40,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:id="@+id/calcButton"
-            android:src="@drawable/calculator_50x50"
+            android:src="@drawable/calculator_inactive_50x50"
             android:background="#efefef"
             android:layout_marginRight="5dp" />
 
@@ -48,7 +48,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:id="@+id/resetButton"
-            android:src="@drawable/reset_50x50"
+            android:src="@drawable/reset_inactive_50x50"
             android:background="#efefef"
             android:layout_marginRight="5dp" />
 
@@ -56,7 +56,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:id="@+id/saveButton"
-            android:src="@drawable/disc_50x50"
+            android:src="@drawable/disc_inactive_50x50"
             android:background="#efefef" />
 
     </LinearLayout>

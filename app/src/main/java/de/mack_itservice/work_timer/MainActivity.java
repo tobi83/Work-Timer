@@ -203,10 +203,15 @@ public class MainActivity extends AppCompatActivity {
                     time1 = df.format(Calendar.getInstance().getTime());
                     tbStartTime1.setText(time1);
 
+                    // Den Stop-Button aktivieren
                     startStopButton.setImageResource(R.drawable.stop_50x50);
+                    // Den Calc-Button aktivieren
                     calcButton.setEnabled(true);
+                    calcButton.setImageResource(R.drawable.calculator_50x50);
                     calcButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
+                    // Den Reset-Button deaktivieren
                     resetButton.setEnabled(false);
+                    resetButton.setImageResource(R.drawable.reset_inactive_50x50);
                     resetButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                 }
                 // nur tbStartTime1 ist belegt
@@ -222,12 +227,19 @@ public class MainActivity extends AppCompatActivity {
                     tbWorktime.setText("");
                     tbCosts.setText("");
 
+                    // Den Stop-Buttona ktivieren
                     startStopButton.setImageResource(R.drawable.stop_50x50);
+                    // Den Calc-Button aktivieren
                     calcButton.setEnabled(true);
+                    calcButton.setImageResource(R.drawable.calculator_50x50);
                     calcButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
+                    // Den Save-Button deaktivieren
                     saveButton.setEnabled(false);
+                    saveButton.setImageResource(R.drawable.disc_inactive_50x50);
                     saveButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                    // Den Reset-Button deaktivieren
                     resetButton.setEnabled(false);
+                    resetButton.setImageResource(R.drawable.reset_inactive_50x50);
                     resetButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                 }
                 // Die ersten 3 Textboxen sind belegt
@@ -395,9 +407,11 @@ public class MainActivity extends AppCompatActivity {
                         String stundenlohn = (settings.getString("stundenlohn", ""));
                         tbStartSummary.setText("Abrechnungszeitraum: " + abrechnungszeitraum + "\nStundenlohn: " + stundenlohn + " €");
 
+                        // Den Start-Button aktivieren
                         startStopButton.setEnabled(true);
                         startStopButton.setImageResource(R.drawable.start_50x50);
                         startStopButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
+
                         tbStartTime1.setText("");
                         tbStopTime1.setText("");
                         tbStartTime2.setText("");
@@ -406,11 +420,18 @@ public class MainActivity extends AppCompatActivity {
                         tbCosts.setText("");
                         compltime = 0;
                         bill = 0;
+
+                        // Den Reset-Button deaktivieren
                         resetButton.setEnabled(false);
+                        resetButton.setImageResource(R.drawable.reset_inactive_50x50);
                         resetButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                        // Den Calc-Button deaktivieren
                         calcButton.setEnabled(false);
+                        calcButton.setImageResource(R.drawable.calculator_inactive_50x50);
                         calcButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                        // Den Save-Button deaktivieren
                         saveButton.setEnabled(false);
+                        saveButton.setImageResource(R.drawable.disc_inactive_50x50);
                         saveButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
                     }
                 })
@@ -500,12 +521,19 @@ public class MainActivity extends AppCompatActivity {
                                 time2 = df.format(Calendar.getInstance().getTime());
                                 tbStopTime1.setText(time2);
 
+                                // Den Start-Button aktivieren
                                 startStopButton.setImageResource(R.drawable.start_50x50);
+                                // Den Calc-Button deaktivieren
                                 calcButton.setEnabled(false);
+                                calcButton.setImageResource(R.drawable.calculator_inactive_50x50);
                                 calcButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                                // Den Save-Button aktivieren
                                 saveButton.setEnabled(true);
+                                saveButton.setImageResource(R.drawable.disc_50x50);
                                 saveButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
+                                // Den Reset-Button aktivieren
                                 resetButton.setEnabled(true);
+                                resetButton.setImageResource(R.drawable.reset_50x50);
                                 resetButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
 
                                 String time1 = tbStartTime1.getText().toString();
@@ -585,14 +613,21 @@ public class MainActivity extends AppCompatActivity {
                                 time2 = df.format(Calendar.getInstance().getTime());
                                 tbStopTime2.setText(time2);
 
-                                startStopButton.setImageResource(R.drawable.start_50x50);
+                                // Den Start-Button deaktivieren
                                 startStopButton.setEnabled(false);
+                                startStopButton.setImageResource(R.drawable.start_inactive_50x50);
                                 startStopButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                                // Den Calc-Button deaktivieren
                                 calcButton.setEnabled(false);
+                                calcButton.setImageResource(R.drawable.calculator_inactive_50x50);
                                 calcButton.setBackgroundColor(Color.parseColor("#f1f1f1"));
+                                // Den Save-Button aktivieren
                                 saveButton.setEnabled(true);
+                                saveButton.setImageResource(R.drawable.disc_50x50);
                                 saveButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
+                                // Den Reset-Button aktivieren
                                 resetButton.setEnabled(true);
+                                resetButton.setImageResource(R.drawable.reset_50x50);
                                 resetButton.setBackgroundColor(Color.parseColor("#d9d9d9"));
 
                                 String time1 = tbStartTime1.getText().toString();
