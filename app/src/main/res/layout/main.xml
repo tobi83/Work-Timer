@@ -9,15 +9,35 @@
     android:background="#ffffffff"
     android:id="@+id/MainLayout">
 
-    <ImageView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/header_picture"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_mack_itservice"
-        android:layout_marginBottom="25dp"
-        android:layout_marginTop="15dp" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="W o r k - T i m e r"
+            android:id="@+id/textView5"
+            android:visibility="visible"
+            android:textSize="17dp"
+            android:maxLines="2"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="right" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_picture"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_64x64"
+            android:layout_marginBottom="25dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
