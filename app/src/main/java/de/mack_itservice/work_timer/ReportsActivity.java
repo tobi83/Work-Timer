@@ -241,6 +241,7 @@ public class ReportsActivity extends Activity {
             tbCustomer6.setText(customer6);
         }
 
+        // Speichern der Berichte
         saveButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
