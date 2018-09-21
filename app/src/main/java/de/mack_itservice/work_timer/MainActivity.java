@@ -112,7 +112,20 @@ public class MainActivity extends AppCompatActivity {
 
             tbStartSummary.setText("Abrechnungszeitraum: " + abrechnungszeitraum + "\nStundenlohn: " + stundenlohn + " €");
         } else {
-            Toast.makeText(getApplicationContext(), "Programm wurde das erste mal gestartet. Bitte in die Einstellungen gehen!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Programm wurde das erste mal gestartet. Bitte in die Einstellungen gehen!", Toast.LENGTH_SHORT).show();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Programm wurde das erste mal gestartet. Bitte die Einstellungen öffnen.\n\n" +
+                    "Ab Android 8 muss die App außerdem aus der Akku-Optimierung ausgeschlossen werden (in den System-Einstellungen).")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //do things
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+
             final SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("stundenlohn", "");
