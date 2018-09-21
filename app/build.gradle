@@ -15,8 +15,8 @@ android {
         applicationId "de.mack_itservice.work_timer"
         minSdkVersion 22
         targetSdkVersion 27
-        versionName '1.02'
-        versionCode 3
+        versionName '1.03'
+        versionCode 4
     }
     buildTypes {
         release {
